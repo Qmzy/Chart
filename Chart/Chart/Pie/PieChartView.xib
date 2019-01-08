@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="RdC-YG-ERe" customClass="PieChartView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJC-8C-H5a" customClass="PieChartDrawView">
+                    <rect key="frame" x="0.0" y="83" width="375" height="185"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="185" id="i4P-18-XNY"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBc-w0-yj9">
+                    <rect key="frame" x="0.0" y="320" width="375" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Miq-wC-0eH">
+                    <rect key="frame" x="15" y="25" width="345" height="8"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="8" id="yi8-hJ-sIK"/>
+                    </constraints>
+                    <collectionViewLayout key="collectionViewLayout" id="AD7-bG-DS9" customClass="CVVarietyLayout">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="mode">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="maxMargin">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="leftEdge">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </collectionViewLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="RdC-YG-ERe" id="uLR-fj-qps"/>
+                        <outlet property="delegate" destination="RdC-YG-ERe" id="C58-bH-s5W"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="EJC-8C-H5a" firstAttribute="centerX" secondItem="RdC-YG-ERe" secondAttribute="centerX" id="1lC-0r-jv3"/>
+                <constraint firstAttribute="trailing" secondItem="Miq-wC-0eH" secondAttribute="trailing" constant="15" id="BpT-si-BPl"/>
+                <constraint firstItem="EJC-8C-H5a" firstAttribute="top" secondItem="Miq-wC-0eH" secondAttribute="bottom" constant="50" id="D9M-0e-Iel"/>
+                <constraint firstAttribute="trailing" secondItem="lBc-w0-yj9" secondAttribute="trailing" id="EEW-sN-vpz"/>
+                <constraint firstItem="EJC-8C-H5a" firstAttribute="leading" secondItem="RdC-YG-ERe" secondAttribute="leading" id="Jo9-jA-rbg"/>
+                <constraint firstItem="Miq-wC-0eH" firstAttribute="leading" secondItem="RdC-YG-ERe" secondAttribute="leading" constant="15" id="NvF-wg-lVB"/>
+                <constraint firstAttribute="trailing" secondItem="EJC-8C-H5a" secondAttribute="trailing" id="Rwg-wi-G5T"/>
+                <constraint firstItem="lBc-w0-yj9" firstAttribute="leading" secondItem="RdC-YG-ERe" secondAttribute="leading" id="UNo-x7-ufV"/>
+                <constraint firstItem="Miq-wC-0eH" firstAttribute="top" secondItem="RdC-YG-ERe" secondAttribute="top" constant="25" id="gKD-Ca-laq"/>
+                <constraint firstAttribute="bottom" secondItem="lBc-w0-yj9" secondAttribute="bottom" constant="30" id="skr-uz-cQe"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="pieChartDrawView" destination="EJC-8C-H5a" id="CPL-bx-AbC"/>
+                <outlet property="pieChartDrawViewHeightConstraint" destination="i4P-18-XNY" id="l4e-HF-CO2"/>
+                <outlet property="pieChartExplainCV" destination="Miq-wC-0eH" id="KBe-c5-fEF"/>
+                <outlet property="pieChartExplainCVHeightConstraint" destination="yi8-hJ-sIK" id="5Zc-pN-Rk8"/>
+                <outlet property="pieChartTitleLabel" destination="lBc-w0-yj9" id="L4l-x7-hsM"/>
+                <outlet property="pieChartTitleLabelBottomConstraint" destination="skr-uz-cQe" id="Zc1-yL-M05"/>
+            </connections>
+            <point key="canvasLocation" x="-1" y="71"/>
+        </view>
+    </objects>
+</document>
